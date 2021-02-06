@@ -10,16 +10,9 @@ app.use('/1',()=>{
 })
 
 
-//Routes 
-app.get('/', (req,res)=>{
-    res.send("We are on home")
-})
 
-app.get('/1', (req,res)=>{
-    res.send("home home..")
-})
 
-mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true, useUnifiedTopology: true },()=>{
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true },()=>{
     console.log('connected to MongoDB');
 })
 
