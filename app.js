@@ -1,14 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const app = express();
 require('dotenv/config');
 
-const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//  Import routes
+const itemsRoute = require('./routes/items');
+
 
 // Middleware 
-app.use('/1',()=>{
-    console.log("This will run everytime when we hit 1")
-})
+app.use('/items',itemsRoute);
 
+// Routes  
+
+app.get('/', (req,res)=>{
+    res.send("We are on home")
+})
 
 
 
